@@ -1,5 +1,4 @@
 <?php
-// app/Events/AchievementUnlocked.php
 
 namespace App\Events;
 

@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\AchievementUnlocked;
 use App\Events\CommentWritten;
 use App\Services\AchievementService;
 use Illuminate\Contracts\Queue\ShouldQueue;

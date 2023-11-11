@@ -4,6 +4,7 @@
 
 namespace App\Listeners;
 
+use App\Events\AchievementUnlocked;
 use App\Events\LessonWatched;
 use App\Services\AchievementService;
 use Illuminate\Contracts\Queue\ShouldQueue;
