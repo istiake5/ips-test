@@ -1,19 +1,29 @@
 <?php
-// app/Listeners/CommentWrittenListener.php
 
 namespace App\Listeners;
 
 use App\Events\CommentWritten;
+use App\Services\AchievementService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CommentWrittenListener implements ShouldQueue
 {
+    private $achievementService;
+
+    public function __construct(AchievementService $achievementService)
+    {
+        $this->achievementService = $achievementService;
+    }
+
     public function handle(CommentWritten $event)
     {
-        // Implement logic to unlock comment-related achievements and badges
+        $user = $event->comment->user;
+        $commentsWrittenCount = $user->comments()->count();
 
-        // Dispatch events for unlocked achievements and badges
-        event(new AchievementUnlocked('Achievement Name', $event->comment->user));
-        event(new BadgeUnlocked('Badge Name', $event->comment->user));
+        if ($user->comments()->count() === 1) {
+            event(new AchievementUnlocked('First Comment Written', $user));
+        }
+
+        $this->achievementService->unlockCommentAchievements($user, $commentsWrittenCount);
     }
 }
