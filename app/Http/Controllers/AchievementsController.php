@@ -46,19 +46,4 @@ class AchievementsController extends Controller
         $this->achievementService->unlockLessonAchievements($user, $lessonsWatchedCount);
         $this->achievementService->unlockCommentAchievements($user, $commentsWrittenCount);
     }
-
-    private function getNextAvailableAchievements(array $unlockedAchievements)
-    {
-        $allAchievements = ['1 Lessons Watched', '5 Lessons Watched', '10 Lessons Watched', '25 Lessons Watched', '50 Lessons Watched',
-                            '1 Comments Written', '3 Comments Written', '5 Comments Written', '10 Comments Written', '20 Comments Written'];
-
-        return array_values(array_diff($allAchievements, $unlockedAchievements));
-    }
-
-    private function getBadgeName($achievementCount)
-    {
-        $badgeNames = ['Beginner', 'Intermediate', 'Advanced', 'Master'];
-        $badgeIndex = floor($achievementCount / 4);
-        return $badgeNames[$badgeIndex];
-    }
 }
