@@ -21,6 +21,7 @@ class LessonWatchedListener implements ShouldQueue
     public function handle(LessonWatched $event)
     {
         $user = $event->user;
+        $user->lessons()->attach($event->lesson->id, ['watched' => true]);
         $lessonsWatchedCount = $user->watched()->count();
 
         if (!$user->watched()->where('lesson_id', $event->lesson->id)->exists()) {

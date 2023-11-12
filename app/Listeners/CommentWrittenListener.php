@@ -19,12 +19,11 @@ class CommentWrittenListener implements ShouldQueue
     public function handle(CommentWritten $event)
     {
         $user = $event->comment->user;
+        $user->comments()->create(['content' => $event->comment->content]);
         $commentsWrittenCount = $user->comments()->count();
-
         if ($user->comments()->count() === 1) {
             event(new AchievementUnlocked('First Comment Written', $user));
         }
-
         $this->achievementService->unlockCommentAchievements($user, $commentsWrittenCount);
     }
 }

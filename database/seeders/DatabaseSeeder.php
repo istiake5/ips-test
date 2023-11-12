@@ -2,19 +2,18 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Lesson;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        $lessons = Lesson::factory()
-            ->count(20)
-            ->create();
+        User::factory()->count(10)->create();
+        Lesson::factory()->count(20)->create();
+        Comment::factory()->count(50)->create();
+        $this->call(LessonUserSeeder::class);
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Services;
-
 use App\Events\AchievementUnlocked;
 use App\Events\BadgeUnlocked;
 use App\Models\User;
@@ -36,8 +35,8 @@ class AchievementService
 
     private function checkAndUnlockBadge(User $user)
     {
-        $badgeAchievements = [4, 8, 10];
-        $userAchievementsCount = $user->achievements()->count();
+        $badgeAchievements = [0, 4, 8, 10];
+        $userAchievementsCount = $user->achievements();
 
         foreach ($badgeAchievements as $badgeCount) {
             if ($userAchievementsCount >= $badgeCount) {

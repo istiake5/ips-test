@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
-use App\Services\AchievementService;
+use App\Repositories\AchievementsRepositoryInterface;
+use App\Repositories\EloquentAchievementsRepository;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,9 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(AchievementService::class, function ($app) {
-            return new AchievementService();
-        });
+        $this->app->bind(AchievementsRepositoryInterface::class, EloquentAchievementsRepository::class);
     }
 
     /**
