@@ -1,4 +1,4 @@
-# Project Name
+# ips-test
 
 ## Project Setup and Execution
 
@@ -14,7 +14,7 @@ Before you begin, make sure you have the following installed on your system:
 
 1. **Clone the Repository:**
    ```bash
-   git clone [https://github.com/istiake5/ips-test.git]
+   git clone https://github.com/istiake5/ips-test.git
 
 2. **Navigate to the Project Directory:**
    ```bash
@@ -38,13 +38,16 @@ Before you begin, make sure you have the following installed on your system:
 7. **Run Migrations:**
    ```bash
    php artisan serve
-   The application will be available at http://127.0.0.1:8000.
+  
+
+***The application will be available at***
+   http://127.0.0.1:8000.
 
 8. **Run Test:**
    ```bash
    php artisan test
 
-Additional Information
+# Additional Information
 User Events:
 The application fires events when users carry out specific actions. Ensure that the LessonWatched and CommentWritten events are properly implemented elsewhere in the system.
 
