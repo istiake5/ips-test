@@ -49,12 +49,12 @@ Before you begin, make sure you have the following installed on your system:
 
 # Additional Information
 User Events:
-The application fires events when users carry out specific actions. Ensure that the LessonWatched and CommentWritten events are properly implemented elsewhere in the system.
+The application fires events when users carry out specific actions. Ensure that the ***LessonWatched*** and ***CommentWritten*** events are properly implemented elsewhere in the system.
 
 Achievements and Badges:
-The logic for unlocking achievements and badges is tied to user events. Check the AchievementService and AchievementsController for more details.
+The logic for unlocking ***achievements*** and ***badges*** is tied to user events. Check the ***AchievementService*** and ***AchievementsController*** for more details.
 
-Database Seeding:
+# Database Seeding:
 If needed, you can seed the database with test data using:
 php artisan migrate:refresh --seed
 
